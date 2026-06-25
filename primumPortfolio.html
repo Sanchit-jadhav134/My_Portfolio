@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanchit Jadhav | Premium Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif;scroll-behavior:smooth}
+body{
+background:#0b1020;color:#fff;overflow-x:hidden;
+}
+#particles-js{position:fixed;inset:0;z-index:-1}
+nav{
+position:fixed;top:0;width:100%;z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 8%;
+background:rgba(0,0,0,.35);
+backdrop-filter:blur(12px);
+}
+.logo{
+font-size:1.6rem;font-weight:bold;
+background:linear-gradient(90deg,#00e5ff,#ff4fd8,#ffe066);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+nav ul{display:flex;gap:22px;list-style:none}
+nav a{text-decoration:none;color:#fff}
+nav a:hover{color:#00e5ff}
+
+#progress{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,#00e5ff,#ff4fd8);z-index:9999}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:120px 8%;
+flex-wrap:wrap;
+}
+.hero h1{font-size:4rem}
+.hero p{margin:20px 0;font-size:1.1rem;max-width:600px}
+.gradient{
+background:linear-gradient(90deg,#00e5ff,#ff4fd8,#ffe066);
+background-size:300%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:move 5s linear infinite;
+}
+@keyframes move{100%{background-position:300%}}
+
+.btn{
+display:inline-block;
+padding:14px 26px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+margin:10px;
+background:linear-gradient(90deg,#00e5ff,#ff4fd8);
+color:#fff;
+}
+
+.hero-img img{
+width:420px;
+max-width:100%;
+animation:float 4s ease-in-out infinite;
+}
+@keyframes float{
+50%{transform:translateY(-20px)}
+}
+
+section{padding:90px 8%}
+.title{text-align:center;font-size:2.5rem;margin-bottom:40px}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.1);
+transition:.4s;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,229,255,.3);
+}
+
+.skill{margin-bottom:20px}
+.bar{height:10px;background:#222;border-radius:20px;overflow:hidden}
+.fill{
+height:100%;
+background:linear-gradient(90deg,#00e5ff,#ff4fd8);
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+text-align:center;
+}
+.stat{
+padding:30px;
+border-radius:20px;
+background:rgba(255,255,255,.08);
+}
+
+.social{
+position:fixed;
+left:15px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:1000;
+}
+.social a{color:#fff;font-size:1.5rem}
+
+footer{text-align:center;padding:30px}
+
+.hidden{opacity:0;transform:translateY(40px);transition:1s}
+.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:768px){
+.hero{text-align:center;justify-content:center}
+.hero h1{font-size:2.5rem}
+nav{flex-direction:column;gap:10px}
+.social{display:none}
+}
+
+.github-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:25px;
+}
+
+.github-card{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:20px;
+    transition:.4s;
+    text-align:center;
+}
+
+.github-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 0 30px rgba(0,229,255,.3);
+}
+
+.github-card img{
+    width:100%;
+    border-radius:15px;
+}
+.leetcode-card{
+    width: 800px;
+    height: 300px;
+    display: block;
+    margin: auto;
+}
+#contact form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    max-width:600px;
+    margin:auto;
+}
+
+#contact input,
+#contact textarea{
+    width:100%;
+    padding:15px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(10px);
+    color:white;
+    font-size:1rem;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder{
+    color:#bbb;
+}
+
+#contact textarea{
+    min-height:150px;
+    resize:none;
+}
+
+#contact button{
+    padding:15px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:1rem;
+    color:white;
+    background:linear-gradient(90deg,#00e5ff,#ff4fd8);
+    transition:.3s;
+}
+
+#contact button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 20px rgba(0,229,255,.4);
+}
+.gif-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.gif-container img{
+    width:500px;
+    max-width:100%;
+    border-radius:20px;
+}
+</style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+<div id="progress"></div>
+
+<div class="social">
+<a href="https://github.com/Sanchit-jadhav134"><i class="fab fa-github"></i></a>
+<a href="https://www.linkedin.com/in/sanchit-jadhav-73539435a/"><i class="fab fa-linkedin"></i></a>
+<a href="https://leetcode.com/u/Sanchit_Jadhav/"><i class="fas fa-code"></i></a>
+</div>
+
+<nav>
+<div class="logo">Sanchit Jadhav 🚀</div>
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div>
+<h1>Hi, I'm <span class="gradient">Sanchit</span></h1>
+<h2><span id="typed"></span></h2>
+<p>Aspiring Data Scientist & Software Developer
+Building real-world projects with Python, Java,
+Data Structures, SQL and Web Development.
+Actively seeking internship opportunities.</p>
+    <a class="btn" href="Sanchit_Resume.png" download="Sanchit_Jadhav_Resume.pdf">
+    <i class="fas fa-download"></i> Download Resume
+</a>
+<a class="btn" href="#contact">Contact Me</a>
+</div>
+<div class="hero-img">
+<img src="https://media.tenor.com/qJ5evVs-_uUAAAAC/coding.gif">
+</div>
+</section>
+
+<section id="about">
+<h2 class="title">About Me</h2>
+<div class="card hidden">
+    I am a B.Tech Computer Science student at Parul University
+with a strong interest in Data Science, Machine Learning,
+and Software Development.
+
+Currently learning Python, Data Structures, SQL,
+and Web Development while building practical projects.
+</div>
+</section>
+
+<section>
+<h2 class="title">Achievements</h2>
+<div class="stats">
+<div class="stat hidden"><h1>10+</h1><p>DSA Problems</p></div>
+<div class="stat hidden"><h1>10+</h1><p>Projects</p></div>
+<div class="stat hidden"><h1>5+</h1><p>Certificates</p></div>
+<div class="stat hidden"><h1>2028</h1><p>Graduation</p></div>
+</div>
+</section>
+
+<section id="skills">
+<h2 class="title">Skills</h2>
+<div class="card hidden">
+<div class="skill">☕Java<div class="bar"><div class="fill" style="width:85%"></div></div></div>
+<div class="skill">🐍Python<div class="bar"><div class="fill" style="width:80%"></div></div></div>
+<div class="skill">🌐HTML<div class="bar"><div class="fill" style="width:95%"></div></div></div>
+<div class="skill">🎨CSS<div class="bar"><div class="fill" style="width:90%"></div></div></div>
+<div class="skill">⚡JavaScript<div class="bar"><div class="fill" style="width:75%"></div></div></div>
+</div>
+</section>
+
+<section id="projects">
+<h2 class="title">Projects</h2>
+<div class="grid">
+<div class="card hidden"><h3>Flipkart Clone</h3><p>Responsive e-commerce interface.</p></div>
+<div class="card hidden"><h3>Portfolio Website</h3><p>Personal branding and showcase website.</p></div>
+<div class="card hidden"><h3>Python Project</h3><p>Learning-based Python project.</p></div>
+</div>
+</section>
+
+
+
+<section id="github">
+    <h2 class="title">📊 GitHub Analytics</h2>
+
+    <div class="github-grid">
+
+        <div class="github-card hidden">
+            <img src="https://github-readme-stats.vercel.app/api?username=Sanchit-jadhav134&show_icons=true&theme=tokyonight&hide_border=true"
+                alt="GitHub Stats">
+        </div>
+
+        <div class="github-card hidden">
+            <img src="https://github-readme-streak-stats.herokuapp.com/?user=Sanchit-jadhav134&theme=tokyonight&hide_border=true"
+                alt="GitHub Streak">
+        </div>
+
+        <div class="github-card hidden">
+            <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Sanchit-jadhav134&layout=compact&theme=tokyonight&hide_border=true"
+                alt="Top Languages">
+        </div>
+
+    </div>
+</section>
+
+<div class="github-card hidden">
+    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Sanchit-jadhav134&theme=tokyo-night" alt="Contribution Graph" height="300px" width="1000px">
+</div>
+
+<section id="leetcode">
+    <h2 class="title">🏆 LeetCode Journey</h2>
+
+    <div class="github-card hidden">
+        <img class="leetcode-card"
+        src="https://leetcard.jacoblin.cool/Sanchit_Jadhav?theme=dark&font=Nunito&ext=contest"
+        alt="LeetCode Stats">
+    </div>
+
+    <center>
+        <a class="btn"
+        href="https://leetcode.com/u/Sanchit_Jadhav/"
+        target="_blank">
+        View Full Profile
+        </a>
+    </center>
+</section>
+
+<section id="contact">
+    <h2 class="title">Contact Me</h2>
+
+    <form action="https://formsubmit.co/sanchitjadhav729@gmail.com" method="POST">
+
+        <input type="text" name="name" placeholder="Your Name" required>
+
+        <input type="email" name="email" placeholder="Your Email" required>
+
+        <textarea name="message" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message 🚀</button>
+
+    </form>
+</section>
+
+<section id="contact">
+<h2 class="title">Contact</h2>
+<div class="card hidden">
+<p>📧 sanchitjadhav729@gmail.com</p>
+<p>📞 9209288394</p>
+<p>📍 Nashik, Maharashtra</p>
+</div>
+</section>
+
+<div class="gif-container">
+    <img src="https://media.tenor.com/rePDfDWO3XoAAAAd/hacking.gif" alt="Developer">
+</div>
+<footer>Made with ❤️ by Sanchit Jadhav</footer>
+
+<script>
+particlesJS("particles-js",{
+particles:{number:{value:70},size:{value:3},move:{speed:2},line_linked:{enable:true}}
+});
+
+new Typed("#typed",{
+strings:["Java Developer","Python Programmer","Frontend Developer","Problem Solver"],
+typeSpeed:70,
+backSpeed:40,
+loop:true
+});
+
+window.addEventListener("scroll",()=>{
+let h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+let s=(document.documentElement.scrollTop/h)*100;
+document.getElementById("progress").style.width=s+"%";
+});
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("show");});
+});
+document.querySelectorAll(".hidden").forEach(el=>observer.observe(el));
+
+VanillaTilt.init(document.querySelectorAll(".card"),{
+max:10,speed:400,glare:true,"max-glare":0.2
+});
+</script>
+
+</body>
+</html>
